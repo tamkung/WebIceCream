@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Nice</title>
+  <meta charset="utf-8">
+  <script defer src="/__/firebase/8.3.3/firebase-app.js"></script>
+  <script defer src="/__/firebase/8.3.3/firebase-auth.js"></script>
+  <script defer src="/__/firebase/8.3.3/firebase-database.js"></script>
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  <script defer src="./js/conf.js"></script>
+  <script defer src="./js/login.js"></script>
+  <script defer src="./js/logout.js"></script>
+  <script defer src="./js/chk_user.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+
+    /* Remove the jumbotron's default bottom margin */
+    .jumbotron {
+      margin-bottom: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="jumbotron text-center" style="background-image: url(./img/Page-Header_Tech-Comms.jpg); color: rgb(255, 255, 255); height: 400px; background-repeat: no-repeat;
+  background-position: center;">
+    <div class="container text-center">
+
+      <!-- <h1>TWT Computer</h1>
+      <p>Computer & Accessories</p> -->
+    </div>
+  </div>
+
+  <nav class="navbar navbar-default navbar-static-top ">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="./index.html">Nice Ice-Cream</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="./index.html">หน้าแรก</a></li>
+          <li><a href="./products.html">สั่งซื้อสินค้า</a></li>
+          <li><a href="./discount.html">โค้ดส่วนลด</a></li>
+          <li class="active"><a href="#">ติดต่อเรา</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a id="cart"></a></li>
+          <li><a id="myOrder"></a></li>
+          <li>
+            <a id="txtLogin" href="./account.html">เข้าสู่ระบบ</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container text-center">
+    <table class="table table-sm text-center table-bordered table-striped table-hover"
+      style="margin-left: auto; margin-right: auto; width: 50%;">
+      <tr>
+        <th class="text-center" colspan="2">ติดต่อเรา</th>
+      </tr>
+      <tr>
+        <th>Facebook</th>
+        <td><a href="https://m.facebook.com/103618779014687" target="_blank">Nice Ice-Cream</a></td>
+      </tr>
+      <tr>
+        <th>Instagram</th>
+        <td><a href="https://www.instagram.com/nice_ice_creamm/?igshid=YmMyMTA2M2Y=&fbclid=IwAR1pvUqR1fPKacewhqtYC_nrjuAYLYeUrZJL33jJsp4h_IsymSKH0kdHvmM" target="_blank">Nice Ice-Cream</a></td>
+      </tr>
+      <tr>
+        <th>Line</th>
+        <td><a href="https://lin.ee/28zG3LG" target="_blank">Nice Ice-Cream</a></td>
+      </tr>
+    </table>
+  </div>
+  <div class="text-center border"
+    style="width:fit-content; margin-left: auto; margin-right: auto; outline: 2px solid rgb(0, 0, 0);">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1937.0519594236139!2d100.50127173134167!3d13.832798020077696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29b0b52a42521%3A0xfc336d7fd373cc62!2z4Lih4Liy4LmA4LiI4Liq4LiV4Li04LiBIOC4l-C4suC4p-C5gOC4p-C4reC4o-C5jA!5e0!3m2!1sth!2sth!4v1649000352760!5m2!1sth!2sth"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <br><br>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <div class="floating-container">
+    <div class="floating-button">+</div>
+    <div class="element-container">
+
+      <span class="float-element tooltip-left">
+        <a href="https://m.facebook.com/103618779014687" target="_blank" class="fab fa-facebook"
+          style='color: white;'></a>
+      </span>
+      <span class="float-element">
+        <a href="https://www.instagram.com/nice_ice_creamm/?igshid=YmMyMTA2M2Y=&fbclid=IwAR1pvUqR1fPKacewhqtYC_nrjuAYLYeUrZJL33jJsp4h_IsymSKH0kdHvmM"
+          target="_blank" class="fab fa-instagram" style='color: white;'></a>
+      </span>
+      <span class="float-element">
+        <a href="https://lin.ee/28zG3LG" target="_blank" class="fab fa-line" style='color: white;'></a>
+      </span>
+    </div>
+  </div>
+  </div>
+  <footer class="container-fluid text-center">
+    <p>&copy; Nice Ice-Cream</p>
+    <form class="form-inline">
+      ที่อยู่ : มาเจสติก ทาวเวอร์ ซอยวัดกำแพง ถนนพิบูลสงคราม ตำบลสวนใหญ่ อำเภอเมืองนนทบุรี นนทบุรี 11000
+    </form>
+  </footer>
+
+</body>
+
+</html>

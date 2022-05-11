@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Nice</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <script defer src="/__/firebase/8.3.3/firebase-app.js"></script>
+  <script defer src="/__/firebase/8.3.3/firebase-auth.js"></script>
+  <script defer src="/__/firebase/8.3.3/firebase-database.js"></script>
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  <script defer src="./js/chk_user.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <!-- <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script> -->
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+
+    /* Remove the jumbotron's default bottom margin */
+    .jumbotron {
+      margin-bottom: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* The Modal (background) */
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Black w/ opacity */
+      -webkit-animation-name: fadeIn;
+      /* Fade in the background */
+      -webkit-animation-duration: 0.4s;
+      animation-name: fadeIn;
+      animation-duration: 0.4s
+    }
+
+    /* Modal Content */
+    .modal-content {
+      position: fixed;
+      bottom: 0;
+      background-color: #fefefe;
+      width: 100%;
+      -webkit-animation-name: slideIn;
+      -webkit-animation-duration: 0.4s;
+      animation-name: slideIn;
+      animation-duration: 0.4s
+    }
+
+    /* The Close Button */
+    .close {
+      color: white;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .modal-header {
+      padding: 2px 16px;
+      background-color: #00a2ca;
+      color: white;
+    }
+
+    .modal-body {
+      padding: 2px 16px;
+    }
+
+    .modal-footer {
+      padding: 2px 12px;
+      background-color: #00a2ca;
+      color: white;
+    }
+
+    /* Add Animation */
+    @-webkit-keyframes slideIn {
+      from {
+        bottom: -300px;
+        opacity: 0
+      }
+
+      to {
+        bottom: 0;
+        opacity: 1
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        bottom: -300px;
+        opacity: 0
+      }
+
+      to {
+        bottom: 0;
+        opacity: 1
+      }
+    }
+
+    @-webkit-keyframes fadeIn {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="jumbotron text-center" style="background-image: url(./img/Page-Header_Tech-Comms.jpg); color: rgb(255, 255, 255); height: 400px; background-repeat: no-repeat;
+  background-position: center;">
+    <div class="container text-center">
+
+      <!-- <h1>TWT Computer</h1>
+      <p>Computer & Accessories</p> -->
+    </div>
+  </div>
+
+  <nav class="navbar navbar-default navbar-static-top ">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Nice Ice-Cream</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">หน้าแรก</a></li>
+          <li><a href="./products.html">สั่งซื้อสินค้า</a></li>
+          <li><a href="./discount.html">โค้ดส่วนลด</a></li>
+          <li><a href="./contact.html">ติดต่อเรา</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a id="cart"></a></li>
+          <li><a id="myOrder"></a></li>
+          <li>
+            <a id="txtLogin" href="./account.html">เข้าสู่ระบบ</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">Nice Ice-Cream</div>
+        <div class="panel-body">
+          <img src="./img/ice1.jpg" class="img-responsive" style="width: 100%" alt="Image" />
+        </div>
+        <div class="panel-footer">
+          <div style="text-align: center">
+            <a href="./products.html" class="btn-sm btn-info" style="text-align: right">
+              ซื้อเลย
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="col-sm-4">
+        <div class="panel panel-danger">
+          <div class="panel-heading">BLACK FRIDAY DEAL</div>
+          <div class="panel-body">
+            <img src="./img/ice2.jpg" class="img-responsive" style="width: 100%" alt="Image" />
+          </div>
+          <div class="panel-footer">
+            <div style="text-align: center">
+              <a href="#" class="btn-sm btn-info" style="text-align: right">
+                ซื้อเลย
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-success">
+          <div class="panel-heading">BLACK FRIDAY DEAL</div>
+          <div class="panel-body">
+            <img src="./img/ice3.jpg" class="img-responsive" style="width: 100%" alt="Image" />
+          </div>
+          <div class="panel-footer">
+            <div style="text-align: center">
+              <a href="#" class="btn-sm btn-info" style="text-align: right">
+                ซื้อเลย
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="panel panel-danger">
+          <div class="panel-heading">BLACK FRIDAY DEAL</div>
+          <div class="panel-body">
+            <img src="./img/ice4.jpg" class="img-responsive" style="width: 100%" alt="Image" />
+          </div>
+          <div class="panel-footer">
+            <div style="text-align: center">
+              <a href="#" class="btn-sm btn-info" style="text-align: right">
+                ซื้อเลย
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-success">
+          <div class="panel-heading">BLACK FRIDAY DEAL</div>
+          <div class="panel-body">
+            <img src="./img/ice5.jpg" class="img-responsive" style="width: 100%" alt="Image" />
+          </div>
+          <div class="panel-footer">
+            <div style="text-align: center">
+              <a href="#" class="btn-sm btn-info" style="text-align: right">
+                ซื้อเลย
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">BLACK FRIDAY DEAL</div>
+          <div class="panel-body">
+            <img src="./img/ice6.jpg" class="img-responsive" style="width: 100%" alt="Image" />
+          </div>
+          <div class="panel-footer">
+            <div style="text-align: center">
+              <a href="#" class="btn-sm btn-info" style="text-align: right">
+                ซื้อเลย
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="panel panel-success">
+          <div class="panel-heading">BLACK FRIDAY DEAL</div>
+          <div class="panel-body">
+            <img src="./img/ice7.jpg" class="img-responsive" style="width: 100%" alt="Image" />
+          </div>
+          <div class="panel-footer">
+            <div style="text-align: center">
+              <a href="#" class="btn-sm btn-info" style="text-align: right">
+                ซื้อเลย
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">BLACK FRIDAY DEAL</div>
+          <div class="panel-body">
+            <img src="./img/ice8.jpg" class="img-responsive" style="width: 100%" alt="Image" />
+          </div>
+          <div class="panel-footer">
+            <div style="text-align: center">
+              <a href="#" class="btn-sm btn-info" style="text-align: right">
+                ซื้อเลย
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-danger">
+          <div class="panel-heading">BLACK FRIDAY DEAL</div>
+          <div class="panel-body">
+            <img src="./img/ice9.jpg" class="img-responsive" style="width: 100%" alt="Image" />
+          </div>
+          <div class="panel-footer">
+            <div style="text-align: center">
+              <a href="#" class="btn-sm btn-info" style="text-align: right">
+                ซื้อเลย
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <br /><br />
+
+
+
+
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <div class="floating-container">
+    <div class="floating-button">+</div>
+    <div class="element-container">
+
+      <span class="float-element tooltip-left">
+        <a href="https://m.facebook.com/103618779014687" target="_blank" class="fab fa-facebook"
+          style='color: white;'></a>
+      </span>
+      <span class="float-element">
+        <a href="https://www.instagram.com/nice_ice_creamm/?igshid=YmMyMTA2M2Y=&fbclid=IwAR1pvUqR1fPKacewhqtYC_nrjuAYLYeUrZJL33jJsp4h_IsymSKH0kdHvmM"
+          target="_blank" class="fab fa-instagram" style='color: white;'></a>
+      </span>
+      <span class="float-element">
+        <a href="https://lin.ee/28zG3LG" target="_blank" class="fab fa-line" style='color: white;'></a>
+      </span>
+    </div>
+  </div>
+  </div>
+  <footer class="container-fluid text-center">
+    <p>&copy; Nice Ice-Cream</p>
+    <form class="form-inline">
+      ที่อยู่ : มาเจสติก ทาวเวอร์ ซอยวัดกำแพง ถนนพิบูลสงคราม ตำบลสวนใหญ่ อำเภอเมืองนนทบุรี นนทบุรี 11000
+    </form>
+  </footer>
+  <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    //var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    function order() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+
+</html>

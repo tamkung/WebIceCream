@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Nice</title>
+    <meta charset="utf-8">
+    <script defer src="/__/firebase/8.3.3/firebase-app.js"></script>
+    <script defer src="/__/firebase/8.3.3/firebase-auth.js"></script>
+    <script defer src="/__/firebase/8.3.3/firebase-database.js"></script>
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <script defer src="./js/conf.js"></script>
+    <script defer src="./js/chk_login.js"></script>
+    <script defer src="./js/login.js"></script>
+    <script defer src="./js/logout.js"></script>
+    <script defer src="./js/edit.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        /* Remove the navbar's default rounded borders and increase the bottom margin */
+        .navbar {
+            margin-bottom: 50px;
+            border-radius: 0;
+        }
+
+        /* Remove the jumbotron's default bottom margin */
+        .jumbotron {
+            margin-bottom: 0;
+        }
+
+        /* Add a gray background color and some padding to the footer */
+        footer {
+            background-color: #f2f2f2;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h1>Online Store</h1>
+            <p>Mission, Vission & Values</p>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Logo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Deals</a></li>
+                    <li><a href="#">Stores</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li id="ifLog" class="active"><a href="#"><span class="glyphicon glyphicon-user"></span> Your
+                            Account</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav><br>
+    <div class="container text-center" id="body" style="display: none;">
+        <div class="text-center">
+            <div id="img"></div>
+            <br>
+            <div id="name"></div>
+            <br>
+            <input type="hidden" name="id" id="id" />
+            <table class="table table-sm table-borderless"
+                style="width:fit-content; margin-left: auto; margin-right: auto;">
+                <tr>
+                    <th>ชื่อ-นามสกุล : </th>
+                    <td><input type="text" name="txtname" id="txtname" size="28"></td>
+                </tr>
+                <tr>
+                    <th>ที่อยู่ : </th>
+                    <td><textarea style="resize: none;" name="txtaddress" id="txtaddress" cols="30" rows="5"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>เบอร์โทรศัพท์ : </th>
+                    <td><input type="text" name="txttel" id="txttel" size="28"></td>
+                </tr>
+                <tr>
+                    <th>อีเมล : </th>
+                    <td><input type="text" name="txtemail" id="txtemail" size="28"></td>
+                </tr>
+            </table>
+            <br><br><br>
+            <div>
+                <button class="btn btn-success" onclick="edit();">บันทึก</button>
+                <a class="btn btn-danger" href="./account.html">ยกเลิก</a>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <div class="floating-container">
+        <div class="floating-button">+</div>
+        <div class="element-container">
+
+            <span class="float-element tooltip-left">
+                <a href="https://m.facebook.com/103618779014687" target="_blank" class="fab fa-facebook"
+                    style='color: white;'></a>
+            </span>
+            <span class="float-element">
+                <a href="https://www.instagram.com/nice_ice_creamm/?igshid=YmMyMTA2M2Y=&fbclid=IwAR1pvUqR1fPKacewhqtYC_nrjuAYLYeUrZJL33jJsp4h_IsymSKH0kdHvmM"
+                    target="_blank" class="fab fa-instagram" style='color: white;'></a>
+            </span>
+            <span class="float-element">
+                <a href="https://lin.ee/28zG3LG" target="_blank" class="fab fa-line" style='color: white;'></a>
+            </span>
+        </div>
+    </div>
+    </div>
+    <footer class="container-fluid text-center">
+        <p>&copy; Nice Ice-Cream</p>
+        <form class="form-inline">
+            ที่อยู่ : มาเจสติก ทาวเวอร์ ซอยวัดกำแพง ถนนพิบูลสงคราม ตำบลสวนใหญ่ อำเภอเมืองนนทบุรี นนทบุรี 11000
+        </form>
+    </footer>
+
+</body>
+
+</html>
